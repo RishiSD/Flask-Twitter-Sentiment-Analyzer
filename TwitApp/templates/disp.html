@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ title }}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for( 'static', filename='images/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="bg-contact2" style="background-image: url('{{ url_for( 'static', filename='images/bg-01.jpg') }}');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+				<span class="contact2-form-title">
+					{{ title }}
+				</span>
+				<br>
+				<div class="container-contact2-form-btn">
+					<div class="wrap-contact2-form-btn">
+						<div class="contact2-form-bgbtn"></div>
+						<a href="{{ url_for('tweet.analysis', key=search_key, rand_id=rand_id) }}" class="contact2-form-btn" role="button">Analyze</a>
+					</div>
+				</div>
+				<br>
+				<div align="center">
+					<h3>Search results for search key : <i>{{ search_key }}</i></h3>
+					<br>
+					{% for tweet in render_list %}
+					<div id ="twitter-tweets">
+					{{ tweet|safe }}
+					</div>
+					{% endfor %}
+				</div>	
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/popper.js') }}"></script>
+	<script src="{{ url_for( 'static', filename='js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/main.js') }}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+
+</body>
+</html>

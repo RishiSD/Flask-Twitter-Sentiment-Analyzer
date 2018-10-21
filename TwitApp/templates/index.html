@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{{ title }}</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{{ url_for( 'static', filename='images/favicon.ico') }}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/animate.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/select2.min.css') }}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for( 'static', filename='css/main.css') }}">
+<!--===============================================================================================-->
+	<script>
+	function validateForm() {
+		var key = document.forms["login_form"]["search_key"].value;
+		var count = document.forms["login_form"]["tweet_count"].value;
+		if (key == "") {
+			alert("Search key must be filled out");
+			return false;
+		}
+		if (count == "") {
+			alert("Tweet count must be filled out");
+			return false;
+		}
+		if (count > 100) {
+			alert("Please enter a value less than 100");
+			return false;
+		}
+		if (count < 10) {
+			alert("Please enter a value greater than 10")
+			return false
+		}
+		document.getElementById("gif").style.visibility = "visible";
+	}
+	</script>
+	
+</head>
+<body>
+
+	<div class="bg-contact2" style="background-image: url('{{ url_for( 'static', filename='images/bg-01.jpg') }}');">
+		<div class="container-contact2">
+			<div class="wrap-contact2">
+				<form class="contact2-form validate-form" name="login_form" id="login_form" action="" onsubmit="return validateForm()" method="POST" novalidate>
+					<span class="contact2-form-title">
+						{{ title }}
+					</span>
+					<img src="{{ url_for( 'static', filename='images/loading.gif') }}" id="gif" style="display: block; margin: 0 auto; width: 100px; visibility: hidden;">
+					<div class="wrap-input2 validate-input" data-validate="Search Key is required">
+						{{ form.search_key(class="input2") }}
+						<span class="focus-input2" data-placeholder="Search Key"></span>
+					</div>
+					<div class="wrap-input2 validate-input" data-validate="Tweet count is required">
+						{{ form.tweet_count(class="input2") }}
+						<span class="focus-input2" data-placeholder="Tweet Count"></span>
+					</div>
+					
+					<div class="container-contact2-form-btn">
+						<div class="wrap-contact2-form-btn">
+							<div class="contact2-form-bgbtn"></div>
+							<button class="contact2-form-btn" id="form-button">
+								Submit
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/popper.js') }}"></script>
+	<script src="{{ url_for( 'static', filename='js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+	<script src="{{ url_for( 'static', filename='js/main.js') }}"></script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>	
+	
+</body>
+</html>

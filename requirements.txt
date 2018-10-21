@@ -1,0 +1,7 @@
+Flask
+Flask-SQLAlchemy
+Tweepy
+uwsgi
+psycopg2
+vaderSentiment
+wtforms
